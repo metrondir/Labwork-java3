@@ -13,31 +13,31 @@ public class  Lab3 {
         System.out.println("Введіть довжину ребра куба см:");
         double a = scan.nextDouble();
 
-
         Solid rectsolid;
         rectsolid = new RectSolid(c, d,h);
         Solid cube;
         cube = new Cube(a);
 
-        double square_rect_solid = rectsolid.GetVolume();
-        System.out.println("Volume of RectSolid: " + square_rect_solid);
-        rectsolid.draw();
-        System.out.println("Volume of RectSolid: " + rectsolid.Perimeter());
-        System.out.println("Volume of RectSolid: " + rectsolid.Square());
-        System.out.println("Volume of RectSolid: " + rectsolid.Diagonal());
 
-        double square_cube = cube.GetVolume();
-        System.out.println("Volume of Cube: " + square_cube);
+
+        System.out.println("Volume of RectSolid: " + rectsolid.Volume());
+        rectsolid.draw();
+        System.out.println("Perimeter of RectSolid: " + rectsolid.Perimeter());
+        System.out.println("Square of RectSolid: " + rectsolid.Square());
+        System.out.println("Diagonal of RectSolid: " + rectsolid.Diagonal());
+
+
+        System.out.println("Volume of Cube: " + cube.Volume());
         cube.draw();
-        System.out.println("Volume of RectSolid: " + cube.Perimeter());
-        System.out.println("Volume of RectSolid: " + cube.Perimeter());
-        System.out.println("Volume of RectSolid: " + cube.Square());
+        System.out.println("Perimeter of RectSolid: " + cube.Perimeter());
+        System.out.println("Square of RectSolid: " + cube.Square());
+        System.out.println("Diagonal of RectSolid: " + cube.Diagonal());
 
     }
 }
 
 abstract class Solid {
-    abstract double GetVolume();
+    abstract double Volume();
     abstract void draw();
     abstract double Perimeter();
     abstract double Square();
@@ -73,7 +73,7 @@ class RectSolid extends Solid {
 
     }
     @Override
-    double GetVolume() {
+    double Volume() {
         return C*D*H;
     }
 }
@@ -105,7 +105,7 @@ class Cube extends Solid {
         this.A = A;
     }
     @Override
-    double GetVolume() {
+    double Volume() {
         return A*A*A;
     }
 }

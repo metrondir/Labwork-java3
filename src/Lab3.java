@@ -21,19 +21,50 @@ public class  Lab3 {
 
         double square_rect_solid = rectsolid.GetVolume();
         System.out.println("Volume of RectSolid: " + square_rect_solid);
+        rectsolid.draw();
+        System.out.println("Volume of RectSolid: " + rectsolid.Perimeter());
+        System.out.println("Volume of RectSolid: " + rectsolid.Square());
+        System.out.println("Volume of RectSolid: " + rectsolid.Diagonal());
+
         double square_cube = cube.GetVolume();
         System.out.println("Volume of Cube: " + square_cube);
+        cube.draw();
+        System.out.println("Volume of RectSolid: " + cube.Perimeter());
+        System.out.println("Volume of RectSolid: " + cube.Perimeter());
+        System.out.println("Volume of RectSolid: " + cube.Square());
+
     }
 }
 
 abstract class Solid {
     abstract double GetVolume();
+    abstract void draw();
+    abstract double Perimeter();
+    abstract double Square();
+    abstract double Diagonal();
 }
 class RectSolid extends Solid {
     double C;
     double D;
     double H;
-
+    @Override
+    void draw(){
+        System.out.println("Виклик методу draw()класу RectSolid");
+    }
+    @Override
+    double Perimeter(){
+      return 4*(D+C+H);
+    }
+    @Override
+    double Square()
+    {
+        return 2*(C*D+D*H+C*H);
+    }
+    @Override
+     double Diagonal()
+     {
+         return Math.sqrt(C*C+D*D+H*H);
+     }
 
     RectSolid(double C, double D,double H) {
         this.C = C;
@@ -49,6 +80,26 @@ class RectSolid extends Solid {
 
 class Cube extends Solid {
     double A;
+    @Override
+    void draw()
+    {
+        System.out.println("Виклик методу draw()класу Cube");
+    }
+    @Override
+    double Perimeter(){
+        return 12*A;
+    }
+    @Override
+    double Square()
+    {
+        return 6*(A*A);
+    }
+    @Override
+    double Diagonal()
+    {
+        return Math.sqrt(3)*A;
+    }
+
 
     Cube(double A) {
         this.A = A;
